@@ -1,4 +1,4 @@
-// Використання консольного вводу для визначення значення функції
+// Процедура для виводу повідомлення про версію ОС, дату та час
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,16 +6,13 @@ using System.Text;
 namespace lab1
 {
     class Program
-    {
-        static void Main(string[] args)
         {
-            double pi = 3.14159;
-            Console.WriteLine("Input x =\r");
-            double x = 
-            Convert.ToDouble(Console.ReadLine());
-            double y = Math.Cos(pi * x) / (1 + x * x);
-            Console.WriteLine(" x = {0} \t y = {1}", x, y);
-            Console
-      	}
-    }
+            static void Main(string[] args)
+            {
+                OperatingSystem os = System.Environment.OSVersion;
+                Console.WriteLine("Platform:{0}", os.Platform);
+                System.Console.WriteLine("The current date and time is" + System.DateTime.Now);
+                System.Console.ReadLine();
+            }
+        }
 }
