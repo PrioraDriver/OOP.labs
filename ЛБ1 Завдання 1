@@ -1,0 +1,21 @@
+// Використання консольного вводу для визначення значення функції
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace lab1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double pi = 3.14159;
+            Console.WriteLine("Input x =\r");
+            double x = 
+            Convert.ToDouble(Console.ReadLine());
+            double y = Math.Cos(pi * x) / (1 + x * x);
+            Console.WriteLine(" x = {0} \t y = {1}", x, y);
+            Console
+      	}
+    }
+}
