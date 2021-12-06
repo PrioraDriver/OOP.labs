@@ -1,0 +1,90 @@
+public class Goods
+{
+    public double price {get; set;}
+    public string date {get; set;}
+    public string name {get; set;}
+    public Goods(string name, string date, double price)
+    {
+        this.name = name;
+        this.date = date;
+        this.price = price;
+    }
+    public Goods()
+    {
+        name = "None";
+        price = 0;
+        date = "1970.01.01";
+    }
+    public void Info()
+    {
+        Console.WriteLine("{0} Був виготовлений {1} з цiною {2}", this.name, this.date, this.price);
+    }  
+}
+public class Toy : Goods
+{
+    public int agerec {get; set;}
+    public string color {get; set;}
+    public Toy(string name, string date, int agerec, string color, double price)
+    :base(name, date, price)
+    {
+        this.agerec = agerec;
+        this.color = color;
+        this.price = price;
+    }
+    public void boom()
+    {
+        Console.WriteLine("Хтось поламав {0}, {1} грн на вiтер", name, price);
+    }
+    public void play()
+    {
+        Console.WriteLine("Не дивлячись на те що менi бiльше {0}-ти менi подобається {1} колiр iграшки", agerec, color);
+    }
+}
+public class Product : Goods
+{
+    public string expdate, inc;
+    public Product(string name, string date, string expdate, string inc, double price)
+    :base(name, date, price)
+    {
+        this.expdate = expdate;
+        this.inc = inc;
+    }
+    public void check()
+    {
+        Console.WriteLine("{0} потрiбно з'їсти до {1}, бо купили його {2}", name, expdate, date);
+    }
+    public void eat()
+    {
+        Console.WriteLine("{0} Був дуже смачним, люлблю коли є {1} ", name, price);
+    }
+}
+public class Milk : Product
+{
+    int temp;
+    public Milk(string name, string date, string expdate, string inc, double price, int temp)
+    :base(name, date, expdate, inc, price)
+    {
+        this.price = price;
+        this.inc = inc;
+        this.temp = temp;
+    }   
+    public void read()
+    {
+        Console.WriteLine("{0} потрiбно зберiгати за температури {1} градусiв ", name, temp);
+    }
+}
+class Program
+{
+    static void Main()
+    {
+        Toy Мяч = new Toy("М'яч", "2.08.2021", 6, "Синiй", 54.30);
+        Product Суши  = new Product("Суши", "5.12.2021", "7.12.2021", "риба, рис", 287);
+        Milk Йогурт = new Milk("Йогурт", "04.12.2021", "10.12.2021", "молоко, жири", 34.50, 8);
+        Мяч.play();
+        Мяч.boom();
+        Йогурт.read();
+        Йогурт.check();
+        Суши.price = 120;
+        Console.WriteLine(Суши.price);
+    }
+}
