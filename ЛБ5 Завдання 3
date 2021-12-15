@@ -1,0 +1,71 @@
+interface Goods
+{
+    void Check(); //Інформація про покупку товару
+    void Use(); //Використати товар
+    void Get(); //Купити новий товар
+    
+}
+class Toy : Goods
+{
+    public void Check()
+    {
+        Console.WriteLine("Була придбана нова iграшка для подарунку.");
+    }
+    public void Use()
+    {
+        Console.WriteLine("Iграшку подарували, вона дуже м'яка.");
+    }
+    public void Get()
+    {
+        Console.WriteLine("З часом знадобилося куаити нову iграшку.");
+    }
+}
+class Product : Goods
+{
+    public void Check()
+    {
+        Console.WriteLine("Хтось купив трохи бананiв.");
+    }
+    public void Use()
+    {
+        Console.WriteLine("Всiм сподобалося їсти банани.");
+    }
+    public void Get()
+    {
+        Console.WriteLine("банани закiнчилися, тому купили ще.");
+    }
+}
+class Milk : Goods
+{
+    public void Check()
+    {
+        Console.WriteLine("Для салату купили багато майонезу.");
+    }
+    public void Use()
+    {
+        Console.WriteLine("Його швидко використали.");
+    }
+    public void Get()
+    {
+        Console.WriteLine("Здовелося купити ще майонезу.");
+    }    
+}
+class Program
+{
+    static void Main()
+    {
+        Goods g;
+        g = new Toy();
+        g.Check();
+        g.Use();
+        g.Get();
+        g = new Product();
+        g.Check();
+        g.Use();
+        g.Get();
+        g = new Milk();
+        g.Check();
+        g.Use();
+        g.Get();
+    }
+}
