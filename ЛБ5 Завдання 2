@@ -1,0 +1,74 @@
+abstract class Goods
+{
+    public abstract void Check(); //Інформація про покупку товару
+    public abstract void Use(); //Використати товар
+    public abstract void Get(); //Купити новий товар
+    
+}
+
+class Toy : Goods
+{
+    public override void Check()
+    {
+        Console.WriteLine("Була придбана нова iграшка для подарунку.");
+    }
+    public override void Use()
+    {
+        Console.WriteLine("Iграшку подарували, вона дуже м'яка.");
+    }
+    public override void Get()
+    {
+        Console.WriteLine("З часом знадобилося куаити нову iграшку.");
+    }
+}
+class Product : Goods
+{
+    public override void Check()
+    {
+        Console.WriteLine("Хтось купив трохи бананiв.");
+    }
+    public override void Use()
+    {
+        Console.WriteLine("Всiм сподобалося їсти банани.");
+    }
+    public override void Get()
+    {
+        Console.WriteLine("банани закiнчилися, тому купили ще.");
+    }
+}
+
+class Milk : Goods
+{
+    public override void Check()
+    {
+        Console.WriteLine("Для салату купили багато майонезу.");
+    }
+    public override void Use()
+    {
+        Console.WriteLine("Його швидко використали.");
+    }
+    public override void Get()
+    {
+        Console.WriteLine("Здовелося купити ще майонезу.");
+    }    
+}
+
+class Program
+{
+    static void Main()
+    {
+        Goods g;
+        g = new Toy();
+        g.Check();
+        g.Use();
+        g.Get();
+        g = new Product();
+        g.Check();
+        g.Use();
+        g.Get();
+        g = new Milk();
+        g.Check();
+        g.Use();
+        g.Get();
+    }
+}
