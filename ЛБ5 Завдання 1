@@ -1,0 +1,89 @@
+public class Goods
+{
+    public double price;
+    public string date;
+    public string name;
+    public Goods(string name, string date, double price)
+    {
+        this.name = name;
+        this.date = date;
+        this.price = price;
+    }
+    public Goods()
+    {
+        name = "Щось";
+        price = 9999;
+        date = "2910.11.11";
+    }
+    public void Info()
+    {
+        Console.WriteLine("{0} було виготовлено {1} з цiною {2}", this.name, this.date, this.price);
+    }  
+}
+public class Toy : Goods
+{
+    public int agerec {get; set;}
+    public string color;
+    public Goods package;
+
+    public Toy(string name, string date, int agerec, string color, double price)
+    :base(name, date, price)
+    {
+        this.agerec = agerec;
+        this.color = color;
+        this.price = price;
+        package = new Goods();
+    }
+    public void packInfo()
+    {
+        Console.WriteLine("На коробцi з iграшкою написано наступне");
+        package.Info();
+    }
+}
+public class Product : Goods
+{
+    public string expdate, inc;
+    public Goods Box;
+    public Product(string name, string date, string expdate, string inc, double price)
+    :base(name, date, price)
+    {
+        this.expdate = expdate;
+        this.inc = inc;
+        Box = new Goods();
+    }
+    public void eat()
+    {   
+        Box.Info();
+        Console.WriteLine("{0} Був дуже смачним, люлблю коли є {1} ", name, inc);
+    }
+}
+public class Milk : Product
+{
+    int temp;
+    public Product cans;
+    public Milk(string name, string date, string expdate, string inc, double price, int temp)
+    :base(name, date, expdate, inc, price)
+    {
+        this.price = price;
+        this.inc = inc;
+        this.temp = temp;
+        cans = new Product("Йогурт", "2007.11.02", "2012.11.02", "М'ясо", 14);
+    }   
+    public void read()
+    {
+        cans.eat();
+        Console.WriteLine("{0} потрiбно зберiгати за температури {1} градусiв ", name, temp);
+    }
+}
+class Program
+{
+    static void Main()
+    {
+        Toy Ball = new Toy("М'яч", "2.08.2021", 6, "Синiй", 54.30);
+        Product Sushi  = new Product("Суши", "5.12.2021", "7.12.2021", "риба, рис", 287);
+        Milk Yogurt = new Milk("Йогурт", "04.12.2021", "10.12.2021", "молоко, жири", 34.50, 8);
+        Ball.packInfo();
+        Sushi.eat();
+        Yogurt.read();
+    }
+}
