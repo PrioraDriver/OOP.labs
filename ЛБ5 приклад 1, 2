@@ -1,3 +1,4 @@
+//Приклад 1
 class Radio
 {
 public Radio() { }
@@ -53,5 +54,32 @@ for (int i = 0; i < 10; i++)
 C1.SpeedUp(20);
 }
 C1.ControlMusic(false);
+}
+}
+
+//Приклад2 
+class Box {
+private double Width;
+private double Height;
+private double Depth;
+Box(double Width, double Height, double Depth) {
+this.Width = Width;
+this.Height = Height;
+this.Depth = Depth;
+}
+class WeightBox : Box {
+private double Weight;
+WeightBox(double Width, double Height, double Depth, double Weight)
+: base (Width, Height, Depth)
+
+{
+// Виклик конструктора найближчого базового класу
+this.Weight = Weight;
+}
+class BoxManager {
+public static void Main(String[ ] args) {
+WeightBox box = new WeightBox(2.0, 3.0, 5.0, 125.5);
+}
+}
 }
 }
